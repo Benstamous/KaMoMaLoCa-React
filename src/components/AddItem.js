@@ -26,11 +26,11 @@ const AddItem = ({ dispatch }) => {
         <Form onSubmit={submitHandler}>
                 <div className="d-flex p-5">
                 <FormGroup>
-                    <Label for="exampleSelect">
+                    <Label for="foodSelect">
                         Select
                     </Label>
                     <Input
-                        id="exampleSelect"
+                        id="foodSelect"
                         name="select"
                         type="select"
                         value={inputValue}
@@ -54,6 +54,8 @@ const AddItem = ({ dispatch }) => {
                     </Input>
                 </FormGroup>
                 </div>
+                <br />
+                <br />
             <button type='submit'>Add</button>
         </Form>
     );
