@@ -1,6 +1,8 @@
+import { Row } from "reactstrap";
+
 const ListItem = ({ item, dispatch }) => {
     return (
-        <div className="list-item">
+        <Row className="list-item">
             <button
                 className="remove-item-button"
                 onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: item })}
@@ -8,7 +10,7 @@ const ListItem = ({ item, dispatch }) => {
                 -
             </button>
             <p className="item-text">{item.name}</p>
-        </div>
+        </Row>
     );
 };
 

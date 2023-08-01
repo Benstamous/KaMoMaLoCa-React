@@ -80,6 +80,7 @@ button {
   margin-left: 1rem;
   background-color: rgb(199, 92, 92);
   color: white;
+  text-align: top;
 }
 
 .site-footer {
@@ -101,9 +102,20 @@ button {
 }
 
 .App {
-  background-image: url('/src/img/exampleImage.png');
+  background-image: url('/src/img/exampleImage.jpg');
   background-size: cover;
   background-attachment: fixed;
   max-width: 100%;
   height: auto;
+}
+
+.cardBackground {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  padding: 50px;
+  margin-top: 10rem;
+  flex-direction: row !important;
+}
+
+.cardImgSize {
+  max-width: 30%;
 }

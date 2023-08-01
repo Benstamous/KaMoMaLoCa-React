@@ -8,13 +8,7 @@ import AddItem from './components/AddItem';
 import ListItem from './components/ListItem';
 import './App.css';
 
-const initState = {
-  items: [
-      { id: uuid(), name: 'milk' },
-      { id: uuid(), name: 'coffee' },
-      { id: uuid(), name: 'mochi' }
-  ]
-};
+const initState = { items: [] };
 
 const listReducer = (state, action) => {
   console.log(action);

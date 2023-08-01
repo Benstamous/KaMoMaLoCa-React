@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CUISINE } from '../shared/CUISINE';
+// import { CUISINE } from '../shared/CUISINE';
 import {
     Form,
     FormGroup,
@@ -20,43 +20,41 @@ const AddItem = ({ dispatch }) => {
         updateInput('');
     };
 
-    const { name } = CUISINE;
+    // const { name } = CUISINE;
 
     return (
         <Form onSubmit={submitHandler}>
-                <div className="d-flex p-5">
-                <FormGroup>
-                    <Label for="foodSelect">
-                        Select
-                    </Label>
-                    <Input
-                        id="foodSelect"
-                        name="select"
-                        type="select"
-                        value={inputValue}
-                        onChange={handleInputChange}
-                        >
-                        <option>
-                            --Choose Item--
-                        </option>
-                        <option>
-                            Pork Munchies
-                        </option>
-                        <option>
-                            Chicken Quesonada
-                        </option>
-                        <option>
-                            Beef Empanada
-                        </option>
-                        <option>
-                            Pork Lumpia
-                        </option>
-                    </Input>
-                </FormGroup>
+                <div>
+                    <FormGroup>
+                        <Label className='text-white' for="foodSelect">
+                            Select
+                        </Label>
+                        <Input
+                            id="foodSelect"
+                            name="select"
+                            type="select"
+                            value={inputValue}
+                            onChange={handleInputChange}
+                            >
+                            <option>
+                                --Choose Item--
+                            </option>
+                            <option>
+                                Pork Munchies
+                            </option>
+                            <option>
+                                Chicken Quesonada
+                            </option>
+                            <option>
+                                Beef Empanada
+                            </option>
+                            <option>
+                                Pork Lumpia
+                            </option>
+                        </Input>
+                    </FormGroup>
                 </div>
-                <br />
-                <br />
-            <button type='submit'>Add</button>
+                <button type='submit'>Add</button>
         </Form>
     );
 };
