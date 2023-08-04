@@ -119,3 +119,9 @@ button {
 .cardImgSize {
   max-width: 30%;
 }
+
+.productTitle {
+  font-size: 50px;
+  margin-top: 0%;
+  font-style: bold;
+}

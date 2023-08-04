@@ -1,56 +1,63 @@
-import { useReducer } from 'react';
-import { v4 as uuid } from 'uuid';
-import { Col, Row } from 'reactstrap';
-import AddItem from './components/AddItem';
-import ListItem from './components/ListItem';
+import { FormGroup, Form, Label, Input, Row, Col, Card, Container } from 'reactstrap';
+import { useState } from 'react';
+import { CUISINE } from '../shared/CUISINE';
 
 
 const OrderSlide = () => {
-    const initState = { items: [] };
+    const [inputValue, updateInput] = useState('');
 
-    const listReducer = (state, action) => {
-    console.log(action);
-    switch (action.type) {
-        case 'ADD_ITEM':
-            return {
-                ...state,
-                items: state.items.concat([
-                    { id: uuid(), name: action.payload }
-                ])
-            };
-        case 'REMOVE_ITEM':
-            return {
-                ...state,
-                items: state.items.filter(
-                    (item) => item.id !== action.payload.id
-                )
-            };
-        default:
-            return state;
-    }
+    const handleInputChange = (e) => {
+        updateInput(e.target.value);
     };
 
-    const [state, dispatch] = useReducer(listReducer, initState);
-    const { items } = state;
+    const submitHandler = (e) => {
+        e.preventDefault();
+        dispatchEvent({
+            type: 'ADD_FOOD',
+            payload: CUISINE[Input.indexOf(inputValue) - 1]
+        });
+    };
 
     return (
-        <Row>
-            <Col className="input-container">
-                <AddItem dispatch={dispatch} />
-            </Col>
-            <Col className="list-container">
-                {items.map((item) => {
-                    return (
-                        <ListItem
-                            key={item.id}
-                            item={item}
-                            dispatch={dispatch}
-                        />
-                    );
-                })}
-            </Col>
-        </Row>    
-    );        
+        <Container>
+            <Row>
+                <Col sm='9'>
+                    <Card className='cardBackground'>
+                        <Form onSubmit={submitHandler} className='text-center'>
+                            <FormGroup>
+                                <Label
+                                    className='text-white'
+                                >
+                                    <h5>Select</h5>
+                                </Label>
+                                <Input
+                                    name='slelct'
+                                    type='select'
+                                    value={inputValue}
+                                    onChange={handleInputChange}
+                                >
+                                    <option>---Choose Item---</option>
+                                    <option>
+                                        Pork Munchies
+                                    </option>
+                                    <option>
+                                        Chicken Quesonada
+                                    </option>
+                                    <option>
+                                        Beef Empanada
+                                    </option>
+                                    <option>
+                                        Pork Lumpia
+                                    </option>
+                                </Input>
+                            </FormGroup>
+                            <button type='submit'>Add</button>
+                        </Form>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
+    )
 };
 
 export default OrderSlide;

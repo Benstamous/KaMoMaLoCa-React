@@ -1,10 +1,10 @@
 import { useState } from 'react';
-// import { CUISINE } from '../shared/CUISINE';
 import {
     Form,
     FormGroup,
     Label,
     Input,
+    Container
   } from 'reactstrap';
 
 const AddItem = ({ dispatch }) => {
@@ -19,8 +19,6 @@ const AddItem = ({ dispatch }) => {
         dispatch({ type: 'ADD_ITEM', payload: inputValue });
         updateInput('');
     };
-
-    // const { name } = CUISINE;
 
     return (
         <Form onSubmit={submitHandler}>
