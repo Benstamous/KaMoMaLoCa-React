@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import AddItem from './components/AddItem';
 import ListItem from './components/ListItem';
 import './App.css';
-import OrderSlide from './features/OrderSlide';
+// import OrderSlide from './features/OrderSlide';
 
 const initState = { items: [] };
 
@@ -57,7 +57,7 @@ function App() {
               );
           })}
       </div>
-      <OrderSlide />
+      {/* <OrderSlide /> */}
       <Footer />
     </div>
   );
